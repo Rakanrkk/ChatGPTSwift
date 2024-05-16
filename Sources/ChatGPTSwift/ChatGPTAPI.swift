@@ -25,7 +25,7 @@ public class ChatGPTAPI: @unchecked Sendable {
     }
 
     public let client: Client
-    private let urlString = "https://api.openai.com/v1"
+    private let urlString = "https://api.openai-hk.com/v1"
     private let gptEncoder = GPTEncoder()
     public private(set) var historyList = [Message]()
     private let apiKey: String
@@ -190,7 +190,7 @@ public class ChatGPTAPI: @unchecked Sendable {
     #if os(iOS) || os(macOS) || os(watchOS) || os(tvOS) || os(visionOS)
     /// TODO: use swift-openapi-runtime MultipartFormBuilder
     public func generateAudioTransciptions(audioData: Data, fileName: String = "recording.m4a", model: String = "whisper-1", language: String = "en") async throws -> String {
-        var request = URLRequest(url: URL(string: "https://api.openai.com/v1/audio/transcriptions")!)
+        var request = URLRequest(url: URL(string: "https://api.openai-hk.com/v1/audio/transcriptions")!)
         let boundary: String = UUID().uuidString
         request.timeoutInterval = 30
         request.httpMethod = "POST"
